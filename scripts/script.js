@@ -77,13 +77,14 @@ function displayStorage () {
 }
 
 $cardsContainer.on('click', '.idea-card .card-delete-button', function() {
-  console.log('click')
-  console.log(this)
-  deleteCard()
+  var $deletedCard = $(this)
+  deleteCard(this)
 });
 
-function deleteCard () {
-  console.log('delete this card');
+function deleteCard (card) {
+  $thisKey = $(card).closest('.idea-card').attr('id')
+  card.closest('.idea-card').remove()
+  localStorage.removeItem($thisKey)
 }
 
 
