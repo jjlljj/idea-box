@@ -76,7 +76,7 @@ function displayStorage () {
   }
 }
 
-$('.idea-card .card-delete-button').on('click', function() {
+$cardsContainer.on('click', '.idea-card .card-delete-button', function() {
   console.log('click')
   console.log(this)
   deleteCard()
@@ -85,4 +85,6 @@ $('.idea-card .card-delete-button').on('click', function() {
 function deleteCard () {
   console.log('delete this card');
 }
+
+
 //this.prop(id.val)
