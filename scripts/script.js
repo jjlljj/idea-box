@@ -5,7 +5,7 @@ var $saveButton = $('.button-save');
 var $searchInput = $('#search-input');
 var $cardsContainer = $('#cards-container')
 
-// don't actually need these yet.. may later though
+// don't actually need these yet...  later though
 var $ideaCard = $('.idea-card')
 var $cardDeleteButtons = $('.card-delete-button');
 var $cardHeader = $('.card-header');
@@ -15,8 +15,6 @@ var $cardContent = $('.card-content');
 var $upvoteButton = $('.upvote-button');
 var $downvoteButton = $('.downvote-button');
 var $ideaQuality = $('.idea-quality');
-
-// var cardKey;
 
 $(document).ready( function() {
   displayStorage();
@@ -40,6 +38,7 @@ $cardsContainer.on('click', '.idea-card .downvote-button', function() {
 
 function makeCard(e) {
   e.preventDefault();
+  console.log('click')
 
   var cardKey = Date.now();
   var titleVal = $titleInput.val();
@@ -83,12 +82,8 @@ function addToStorage(key, title, body, quality) {
 
 function displayStorage () {
   for (i=0; i < localStorage.length; i++){
-    var thisCardKey = JSON.parse(Object.values(localStorage)[i]).cardKey;
-    var thisCardTitle = JSON.parse(Object.values(localStorage)[i]).title;
-    var thisCardBody = JSON.parse(Object.values(localStorage)[i]).body;
-    var thisIdeaQuality = JSON.parse(Object.values(localStorage)[i]).quality;
-
-    prependCards(thisCardKey, thisCardTitle, thisCardBody, thisIdeaQuality)
+    var $thisCard = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    prependCards($thisCard.cardKey, $thisCard.title, $thisCard.body, $thisCard.quality)
   }
 }
 
@@ -106,7 +101,7 @@ function resetInputs () {
 
 function searchCards(e) {
   e.preventDefault();
-
+  // build search functionality here
   console.log($searchInput.val())
 }
 
@@ -116,16 +111,17 @@ function setIdeaQuality (card, vote) {
 
   if ($thisIdea.quality === 'plausible' && vote === 'upvote') {
     $(`#${thisKey} .idea-quality`).text('genius')
-    /// NEEDS TO UPDATE IN JSON  HERE
+    $thisIdea.quality = "genius";
   } else if ($thisIdea.quality === 'plausible' && vote === 'downvote') {
     $(`#${thisKey} .idea-quality`).text('swill')
-    /// NEEDS TO UPDATE IN JSON  HERE
+    $thisIdea.quality = "swill";
   } else if ($thisIdea.quality === 'swill' && vote === 'upvote') {
     $(`#${thisKey} .idea-quality`).text('plausible')
-    /// NEEDS TO UPDATE IN JSON  HERE
+    $thisIdea.quality = "plausible";
   } else if ($thisIdea.quality === 'genius' && vote === 'downvote') {
     $(`#${thisKey} .idea-quality`).text('plausible')
-    // UPDATE JSON HERE
+    $thisIdea.quality = "plausible";
   };
 
+  localStorage.setItem(thisKey, JSON.stringify($thisIdea))
 }
