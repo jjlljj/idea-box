@@ -38,6 +38,7 @@ $cardsContainer.on('click', '.idea-card .downvote-button', function() {
 
 function makeCard(e) {
   e.preventDefault();
+  console.log('click')
 
   var cardKey = Date.now();
   var titleVal = $titleInput.val();

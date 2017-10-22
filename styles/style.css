@@ -96,16 +96,16 @@ body {
 	padding: 10px 10px 0px 10px;
 }
 .card-delete-button {
-	float: right;
-	background: url(file:///C:/Users/Computer/Desktop/Turing/idea-box/images/delete.svg);
+	position: absolute;
+	/*background: url(images/delete.svg);*/
 	height: 20px;
 	width: 20px;
 	border-radius: 0;
-  	border: 0;
+  border: 0;
 }
 .card-delete-button:hover {
 	float: right;
-	background: url(file:///C:/Users/Computer/Desktop/Turing/idea-box/images/delete-hover.svg);
+	/*background: url(images/delete-hover.svg);*/
 	height: 20px;
 	width: 20px;
 	border-radius: 0;
@@ -123,28 +123,28 @@ body {
 	padding: 0px 0px 0px 0px;
 }
 .upvote-button {
-	background: url(file:///C:/Users/Computer/Desktop/Turing/idea-box/images/upvote.svg);
+	/*background-image: url(images/upvote.svg);*/
 	height: 20px;
 	width: 20px;
 	border-radius: 0;
-  	border: 0;
+  border: 0;
 }
 .upvote-button:hover{
-	background: url(file:///C:/Users/Computer/Desktop/Turing/idea-box/images/upvote-hover.svg);
+	/*background-image: url(images/upvote-hover.svg);*/
 	height: 20px;
 	width: 20px;
 	border-radius: 0;
   	border: 0;
 }
 .downvote-button {
-	background: url(file:///C:/Users/Computer/Desktop/Turing/idea-box/images/downvote.svg);
+	/*background-image: url(images/downvote.svg);*/
 	height: 20px;
 	width: 20px;
 	border-radius: 0;
   	border: 0;
 }
 .downvote-button:hover{
-	background: url(file:///C:/Users/Computer/Desktop/Turing/idea-box/images/downvote-hover.svg);
+	/*background-image: url(images/downvote-hover.svg);*/
 	height: 20px;
 	width: 20px;
 	border-radius: 0;
