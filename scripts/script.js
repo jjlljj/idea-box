@@ -43,7 +43,7 @@ function makeCard(e) {
   var cardKey = Date.now();
   var titleVal = $titleInput.val();
   var bodyVal = $bodyInput.val();
-  var ideaQuality = 'plausible';
+  var ideaQuality = 'swill';
   prependCards(cardKey, titleVal, bodyVal, ideaQuality);
   addToStorage(cardKey, titleVal, bodyVal, ideaQuality);
 
