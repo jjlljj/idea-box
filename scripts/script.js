@@ -10,9 +10,7 @@ var $ideaCard = $('.idea-card')
 var $cardDeleteButtons = $('.card-delete-button');
 var $cardHeader = $('.card-header');
 var $cardContent = $('.card-content');
-
 //
-
 
 var $upvoteButton = $('.upvote-button');
 var $downvoteButton = $('.downvote-button');
@@ -29,18 +27,15 @@ $saveButton.on('click', makeCard);
 $searchInput.keyup(searchCards)
 
 $cardsContainer.on('click', '.idea-card .card-delete-button', function() {
-  var $deletedCard = $(this)
   deleteCard(this)
 });
 
 $cardsContainer.on('click', '.idea-card .upvote-button', function() {
-  var $thisVote = $(this);
-  setIdeaQuality($thisVote, 'upvote')
+  setIdeaQuality(this, 'upvote') 
 });
 
 $cardsContainer.on('click', '.idea-card .downvote-button', function() {
-  var $thisVote = $(this);
-  setIdeaQuality($thisVote, 'downvote')
+  setIdeaQuality(this, 'downvote') 
 });
 
 function makeCard(e) {
