@@ -16,8 +16,6 @@ var $upvoteButton = $('.upvote-button');
 var $downvoteButton = $('.downvote-button');
 var $ideaQuality = $('.idea-quality');
 
-// var cardKey;
-
 $(document).ready( function() {
   displayStorage();
 })
@@ -106,7 +104,7 @@ function resetInputs () {
 
 function searchCards(e) {
   e.preventDefault();
-
+  // build search functionality here
   console.log($searchInput.val())
 }
 
@@ -116,16 +114,17 @@ function setIdeaQuality (card, vote) {
 
   if ($thisIdea.quality === 'plausible' && vote === 'upvote') {
     $(`#${thisKey} .idea-quality`).text('genius')
-    /// NEEDS TO UPDATE IN JSON  HERE
+    $thisIdea.quality = "genius";
   } else if ($thisIdea.quality === 'plausible' && vote === 'downvote') {
     $(`#${thisKey} .idea-quality`).text('swill')
-    /// NEEDS TO UPDATE IN JSON  HERE
+    $thisIdea.quality = "swill";
   } else if ($thisIdea.quality === 'swill' && vote === 'upvote') {
     $(`#${thisKey} .idea-quality`).text('plausible')
-    /// NEEDS TO UPDATE IN JSON  HERE
+    $thisIdea.quality = "plausible";
   } else if ($thisIdea.quality === 'genius' && vote === 'downvote') {
     $(`#${thisKey} .idea-quality`).text('plausible')
-    // UPDATE JSON HERE
+    $thisIdea.quality = "plausible";
   };
 
+  localStorage.setItem(thisKey, JSON.stringify($thisIdea))
 }
