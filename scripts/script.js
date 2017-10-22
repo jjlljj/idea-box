@@ -55,12 +55,12 @@ function prependCards(key, title, body, quality) {
     $(  `<article class="idea-card" id="${key}">
       <header class="card-header-container">
         <h3 class="card-header">${title}</h3>
-        <button class="card-delete-button">DEL</button>
+        <button class="card-delete-button"></button>
       </header>
       <p class="card-content"> ${body}</p>
       <footer class="card-footer-container">
-        <button class="upvote-button">UP</button>
-        <button class="downvote-button">DO</button>
+        <button class="upvote-button"></button>
+        <button class="downvote-button"></button>
         <h4 class="quality-header">quality: <span class="idea-quality">${quality}</span></h4>
       </footer>
     </article> `
