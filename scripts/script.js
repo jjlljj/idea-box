@@ -5,7 +5,7 @@ var $saveButton = $('.button-save');
 var $searchInput = $('#search-input');
 var $cardsContainer = $('#cards-container')
 
-// don't actually need these yet.. may later though
+// don't actually need these yet...  later though
 var $ideaCard = $('.idea-card')
 var $cardDeleteButtons = $('.card-delete-button');
 var $cardHeader = $('.card-header');
@@ -81,12 +81,8 @@ function addToStorage(key, title, body, quality) {
 
 function displayStorage () {
   for (i=0; i < localStorage.length; i++){
-    var thisCardKey = JSON.parse(Object.values(localStorage)[i]).cardKey;
-    var thisCardTitle = JSON.parse(Object.values(localStorage)[i]).title;
-    var thisCardBody = JSON.parse(Object.values(localStorage)[i]).body;
-    var thisIdeaQuality = JSON.parse(Object.values(localStorage)[i]).quality;
-
-    prependCards(thisCardKey, thisCardTitle, thisCardBody, thisIdeaQuality)
+    var $thisCard = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    prependCards($thisCard.cardKey, $thisCard.title, $thisCard.body, $thisCard.quality)
   }
 }
 
