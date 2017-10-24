@@ -5,13 +5,6 @@ var $saveButton = $('.button-save');
 var $searchInput = $('#search-input');
 var $cardsContainer = $('#cards-container')
 
-// don't actually need these yet...  later though
-var $ideaCard = $('.idea-card')
-var $cardDeleteButtons = $('.card-delete-button');
-var $cardHeader = $('.card-header');
-var $cardContent = $('.card-content');
-//
-
 var $upvoteButton = $('.upvote-button');
 var $downvoteButton = $('.downvote-button');
 var $ideaQuality = $('.idea-quality');
@@ -100,9 +93,17 @@ function resetInputs () {
 }
 
 function searchCards(e) {
-  e.preventDefault();
-  // build search functionality here
-  console.log($searchInput.val())
+
+  $('.idea-card').addClass('hidden')
+
+  for (i=0; i < localStorage.length; i++){
+    var $thisCard = JSON.parse(localStorage.getItem(localStorage.key(i)));
+     if ($thisCard.title.includes($searchInput.val()) || $thisCard.body.includes($searchInput.val())) {
+      var keyId = "#" + $thisCard.cardKey
+      $(keyId).removeClass('hidden');
+    }
+  }
+
 }
 
 function setIdeaQuality (card, vote) {
