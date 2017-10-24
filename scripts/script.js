@@ -29,6 +29,14 @@ $cardsContainer.on('click', '.idea-card .downvote-button', function() {
   setIdeaQuality(this, 'downvote') 
 });
 
+$cardsContainer.on('blur', '.idea-card .card-header', function() {
+  saveCardTitle(this);
+});
+
+$cardsContainer.on('blur', '.idea-card .card-content', function() {
+  saveCardBody(this);
+});
+
 function makeCard(e) {
   e.preventDefault();
   console.log('click')
@@ -47,10 +55,10 @@ function prependCards(key, title, body, quality) {
   $cardsContainer.prepend(
     $(  `<article class="idea-card" id="${key}">
       <header class="card-header-container">
-        <h3 class="card-header">${title}</h3>
+        <h3 class="card-header" contenteditable="true">${title}</h3>
         <button class="card-delete-button"></button>
       </header>
-      <p class="card-content"> ${body}</p>
+      <p class="card-content" contenteditable="true"> ${body}</p>
       <footer class="card-footer-container">
         <button class="upvote-button"></button>
         <button class="downvote-button"></button>
@@ -125,4 +133,21 @@ function setIdeaQuality (card, vote) {
   };
 
   localStorage.setItem(thisKey, JSON.stringify($thisIdea))
+}
+function saveCardTitle (card) {
+  var titleVal = $(card).text();
+  var thisKey = $(card).closest('.idea-card').attr('id');
+  var $thisIdea = JSON.parse(localStorage.getItem(thisKey));
+  $thisIdea.title = titleVal;
+
+  localStorage.setItem(thisKey, JSON.stringify($thisIdea))
+};
+function saveCardBody (card) {
+  var bodyVal = $(card).text();
+  var thisKey = $(card).closest('.idea-card').attr('id');
+  var $thisIdea = JSON.parse(localStorage.getItem(thisKey));
+
+  $thisIdea.body = bodyVal;
+  localStorage.setItem(thisKey, JSON.stringify($thisIdea));
+  console.log($thisIdea)
 }
