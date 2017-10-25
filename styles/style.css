@@ -13,14 +13,20 @@ body {
 p {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
-	letter-spacing: .5px;
+	font-size: 14px;
+	line-height: 18px;
+	letter-spacing: .25px;
 }
-::-webkit-input-placeholder { 
-  font-family: 'Roboto slab', sans-serif;
-	font-weight: 700;
-	letter-spacing: .5px;
+::-webkit-input-placeholder,
+::-webkit-textarea-placeholder { 
+  font-family: 'Open Sans', sans-serif;
+  color: #939598;
+  opacity: .7;
+	font-weight: 400;
+	letter-spacing: .75px;
+
 }
-button {
+button  {
 	outline-style: none;
 }
 /* input section and form */
@@ -28,18 +34,16 @@ button {
 .input-section {
 	background-color: #E5F3F2;
 	padding-top: 15px;
-	padding-bottom: 15px;
-	height: 215px;
-/*	position: fixed;*/
-	z-index: 1;
+	padding-bottom: 20px;
 	top: 0px;
 	width: 100%;
+	min-width: 350px;
 }
 
 .site-header {
-	margin-top: 50px;
-	font-family: 'Roboto Slab', sans-serif;
-	font-size: 48px;
+	margin: 10px auto 20px;
+	font-family: 'Roboto Slab';
+	font-size: 36px;
 	font-weight: 700;
 	color: #6D6E71;
 	letter-spacing: 1.25px;
@@ -55,33 +59,41 @@ button {
 	width: 350px;
 	margin: auto;
 }
+
 .input-title {
 	display: block;
 	box-sizing: border-box;
+	border: 1px solid #D1D3D4;
+	font-size: 15px;
 	width: 100%;
-	height:25px;
-	padding: 2px;
-	margin: 10px 0px;
+	height: 28px;
+	padding: 2px 5px;
+	margin: 15px 0px;
 	outline-style: none;
 }
 
 .input-body {
 	display: block;
+	border: 1px solid #D1D3D4;
 	box-sizing: border-box;
+	font-size: 15px;
 	width: 100%;
-	height: 25px;
-	padding: 2px;
-	margin: 10px 0px;
+	height: 28px;
+	padding: 2px 5px;
+	margin: 15px 0px;
+	max-height: 70px;
+	outline-style: none;
+	resize: none;
 }
 
 .button-save {
-	width: 350px;
 	background-color: #00A79D;
-	color: #FFFFFF;
 	border-radius: 0;
+	color: #FFFFFF;
+	width: 350px;
   border: 0;
-  padding: 5px;
-  height: 28px;
+  font-size: 14px;
+  height: 30px;
   outline-style: none;
 } 
 
@@ -92,7 +104,6 @@ button {
 	display: block;
 	width: 350px;
 	margin: 20px auto 10px;
-	/*padding: 100px;*/
 }
 
 /* search bar */
@@ -101,7 +112,6 @@ button {
 	z-index: 1;
 	background-color: #FFFFFF;
 	margin: 0px auto;
-	padding-top: 12px;
 }
 
 ::-webkit-scrollbar {
@@ -111,23 +121,24 @@ button {
 
 .input-search {
 	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+	border: 1px solid #D1D3D4;
+	font-size: 15px;
 	width: 350px;
-	height: 25px;
-	padding: 3px;
-	margin: 0px auto;
+	height: 28px;
+	padding: 3px 5px;
+	margin: 0px auto 10px;
 	outline-style: none;
 }
 
 /* haus du cards */
 .cards-container {
-	z-index: -1;
-	/*display: flex;
-	flex-direction: column;
-	justify-content: center;*/
 	width: 100%;
-  height: 400px;
-	overflow-y: auto;
+  height: 50vh;
+	overflow-y: scroll;
+	padding-bottom: 100px;
 }
+
 .idea-card {
 	box-sizing: border-box;
 	width: 100%;
@@ -136,17 +147,20 @@ button {
 .card-header-container {
 	width: 100%;
 	position: relative;
-	padding: 10px 0px;
+	padding: 20px 0px 10px;
 }
 
 .card-header {
 	font-family: 'Roboto Slab', sans-serif;
-	font-size: 22px;
+	color: #6D6E71;
+	margin-right: 30px;
+	font-size: 16px;
+	letter-spacing: .2px;
 }
 
 .card-delete-button {
 	position: absolute;
-	top: 11px;
+	top: 17px;
 	right: 0px;
 	background: url(../images/delete.svg);
 	height: 20px;
@@ -160,7 +174,7 @@ button {
 	height: 20px;
 	width: 20px;
 	border-radius: 0;
-  	border: 0;
+  border: 0;
 }
 
 .card-content {
@@ -174,7 +188,6 @@ button {
 }
 .card-footer-container button {
 	display: inline-block;
-	padding: 0px 0px ;
 }
 .upvote-button {
 	background: url(../images/upvote.svg);
@@ -182,17 +195,10 @@ button {
 	height: 20px;
 	width: 20px;
   border: none;
-  margin: 0;
-  padding: 0;
+  margin-right: 10px;
 }
 .upvote-button:hover{
 	background: url(../images/upvote-hover.svg);
-	background-size: 20px;
-	height: 20px;
-	width: 20px;
-  border: none;
-  margin: 0;
-  padding: 0;
 }
 .downvote-button {
 	background: url(../images/downvote.svg);
@@ -200,20 +206,16 @@ button {
 	height: 20px;
 	width: 20px;
   border: none;
-  margin: 0;
-  padding: 0;
 }
 .downvote-button:hover{
 	background: url(../images/downvote-hover.svg);
-	height: 20px;
-	width: 20px;
-	border-radius: 0;
-  border: 0;
+
 }
 .quality-header {
 	font-family: 'Roboto Slab', sans-serif;
 	color: #6D6E71;
 	position: absolute;
+	font-size: 12px;
 	left: 60px;
 	bottom: 25px;
 	padding: 1px 0px 0px 10px;
@@ -225,3 +227,36 @@ button {
 .hidden {
 	display: none;
 }
+
+
+@media screen and (max-width: 600px) {
+	body {
+		overflow: scroll;
+	}
+
+	.cards-container {
+		overflow-y: visible;
+	}
+
+	.card-section {
+		padding-bottom: 60px;
+	}
+
+	.input-body {
+		height: 70px;
+		padding-top: 0px;
+	}
+
+	.site-header {
+		font-size: 30px;
+	}
+
+	.idea-card {
+		width: 95%;
+		padding: 10px;
+	}
+
+}
+
+
+
