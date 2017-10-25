@@ -45,6 +45,13 @@ function makeCard(e) {
   var titleVal = $titleInput.val();
   var bodyVal = $bodyInput.val();
   var ideaQuality = 'swill';
+
+  if (titleVal === "" || bodyVal === "") {
+    $saveButton.text("please enter an idea");
+    setTimeout(function(){ $saveButton.text("save"); }, 2500);
+    return false;
+  }
+
   prependCards(cardKey, titleVal, bodyVal, ideaQuality);
   addToStorage(cardKey, titleVal, bodyVal, ideaQuality);
 
