@@ -13,13 +13,13 @@ $(document).ready( function() {
   displayStorage();
 })
 
-$saveButton.on('click', makeCard);
-
 $searchInput.keyup(searchCards)
 
 $bodyInput.keyup( function() {
     sizeInput(this)
 });
+
+$saveButton.on('click', makeCard);
 
 $cardsContainer.on('click', '.idea-card .card-delete-button', function() {
   deleteCard(this)
@@ -40,6 +40,32 @@ $cardsContainer.on('blur', '.idea-card .card-header', function() {
 $cardsContainer.on('blur', '.idea-card .card-content', function() {
   saveCardBody(this);
 });
+
+
+function addToStorage(key, title, body, quality) {
+  var newIdea = new IdeaObject(key, title, body, quality);
+  localStorage.setItem(key, JSON.stringify(newIdea))
+}
+
+function deleteCard (card) {
+  thisKey = $(card).closest('.idea-card').attr('id');
+  card.closest('.idea-card').remove();
+  localStorage.removeItem(thisKey);
+}
+
+function displayStorage () {
+  for (i=0; i < localStorage.length; i++){
+    var $thisCard = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    prependCards($thisCard.cardKey, $thisCard.title, $thisCard.body, $thisCard.quality)
+  }
+}
+
+function IdeaObject (cardKey, title, body, quality ){
+  this.cardKey = cardKey;
+  this.title = title;
+  this.body = body;
+  this.quality = quality;
+}
 
 function makeCard(e) {
   e.preventDefault();
@@ -68,7 +94,7 @@ function prependCards(key, title, body, quality) {
         <h3 class="card-header" contenteditable="true">${title}</h3>
         <button class="card-delete-button"></button>
       </header>
-      <p class="card-content" contenteditable="true"> ${body}</p>
+      <p class="card-content" contenteditable="true">${body}</p>
       <footer class="card-footer-container">
         <button class="upvote-button"></button>
         <button class="downvote-button"></button>
@@ -79,39 +105,31 @@ function prependCards(key, title, body, quality) {
   );
 }
 
-function IdeaObject (cardKey, title, body, quality ){
-  this.cardKey = cardKey;
-  this.title = title;
-  this.body = body;
-  this.quality = quality;
-}
-
-function addToStorage(key, title, body, quality) {
-  var newIdea = new IdeaObject(key, title, body, quality);
-  localStorage.setItem(key, JSON.stringify(newIdea))
-}
-
-function displayStorage () {
-  for (i=0; i < localStorage.length; i++){
-    var $thisCard = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    prependCards($thisCard.cardKey, $thisCard.title, $thisCard.body, $thisCard.quality)
-  }
-}
-
-function deleteCard (card) {
-  thisKey = $(card).closest('.idea-card').attr('id');
-  card.closest('.idea-card').remove();
-  localStorage.removeItem(thisKey);
-}
-
 function resetInputs () {
   $titleInput.val("");
   $bodyInput.val("");
   $searchInput.val("");
 }
 
-function searchCards(e) {
+function saveCardBody (card) {
+  var bodyVal = $(card).text();
+  var thisKey = $(card).closest('.idea-card').attr('id');
+  var $thisIdea = JSON.parse(localStorage.getItem(thisKey));
 
+  $thisIdea.body = bodyVal;
+  localStorage.setItem(thisKey, JSON.stringify($thisIdea));
+}
+
+function saveCardTitle (card) {
+  var titleVal = $(card).text();
+  var thisKey = $(card).closest('.idea-card').attr('id');
+  var $thisIdea = JSON.parse(localStorage.getItem(thisKey));
+  $thisIdea.title = titleVal;
+
+  localStorage.setItem(thisKey, JSON.stringify($thisIdea))
+};
+
+function searchCards(e) {
   $('.idea-card').addClass('hidden')
 
   for (i=0; i < localStorage.length; i++){
@@ -121,11 +139,6 @@ function searchCards(e) {
       $(keyId).removeClass('hidden');
     }
   }
-
-}
-
-function sizeInput(element) {
- $(element).height(0).height(element.scrollHeight)
 }
 
 function setIdeaQuality (card, vote) {
@@ -149,20 +162,7 @@ function setIdeaQuality (card, vote) {
   localStorage.setItem(thisKey, JSON.stringify($thisIdea))
 }
 
-function saveCardTitle (card) {
-  var titleVal = $(card).text();
-  var thisKey = $(card).closest('.idea-card').attr('id');
-  var $thisIdea = JSON.parse(localStorage.getItem(thisKey));
-  $thisIdea.title = titleVal;
-
-  localStorage.setItem(thisKey, JSON.stringify($thisIdea))
-};
-
-function saveCardBody (card) {
-  var bodyVal = $(card).text();
-  var thisKey = $(card).closest('.idea-card').attr('id');
-  var $thisIdea = JSON.parse(localStorage.getItem(thisKey));
-
-  $thisIdea.body = bodyVal;
-  localStorage.setItem(thisKey, JSON.stringify($thisIdea));
+function sizeInput(element) {
+ $(element).height(0).height(element.scrollHeight)
 }
+

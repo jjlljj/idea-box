@@ -4,12 +4,14 @@
 	color: #939598;
 }
 
-label {
-  display: none;
-}
 body {
 	overflow: auto;
 }
+
+label {
+  display: none;
+}
+
 p {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
@@ -17,15 +19,17 @@ p {
 	line-height: 18px;
 	letter-spacing: .25px;
 }
+
 ::-webkit-input-placeholder,
 ::-webkit-textarea-placeholder { 
-  font-family: 'Open Sans', sans-serif;
   color: #939598;
-  opacity: .7;
+  font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	letter-spacing: .75px;
+  opacity: .7;
 
 }
+
 button  {
 	outline-style: none;
 }
@@ -33,11 +37,11 @@ button  {
 
 .input-section {
 	background-color: #E5F3F2;
+	min-width: 350px;
 	padding-top: 15px;
 	padding-bottom: 20px;
 	top: 0px;
 	width: 100%;
-	min-width: 350px;
 }
 
 .site-header {
