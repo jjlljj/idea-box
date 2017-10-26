@@ -103,6 +103,18 @@ button  {
   width: 350px;
 } 
 
+#button-sort {
+	background-color: #00A79D;
+	border-radius: 0;
+	color: #FFFFFF;
+  border: 0;
+  font-size: 14px;
+  height: 30px;
+  margin-top: 20px;
+  outline-style: none;
+	width: 350px;
+} 
+
 /* search and cards container */
 
 .card-section {
@@ -144,6 +156,8 @@ button  {
 	overflow-y: scroll;
 	padding-bottom: 100px;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 .idea-card {

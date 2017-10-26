@@ -9,6 +9,8 @@ var $upvoteButton = $('.upvote-button');
 var $downvoteButton = $('.downvote-button');
 var $ideaQuality = $('.idea-quality');
 
+var sortState = 0;
+
 $(document).ready( function() {
   displayStorage();
 })
@@ -18,6 +20,8 @@ $searchInput.keyup(searchCards)
 $bodyInput.keyup( function() {
     sizeInput(this)
 });
+
+$('#button-sort').click(sortCards);
 
 $saveButton.on('click', makeCard);
 
@@ -166,3 +170,35 @@ function sizeInput(element) {
  $(element).height(0).height(element.scrollHeight)
 }
 
+function sortCards(e) {
+  console.log('click')
+  e.preventDefault();
+  if (sortState === 0) {
+    for (i=0; i < localStorage.length; i++){
+      var $thisCard = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      if ($thisCard.quality === 'genius'){
+        $(`#${$thisCard.cardKey}`).css('order', 1);
+      } else if ($thisCard.quality === 'plausible'){
+        $(`#${$thisCard.cardKey}`).css('order', 2);
+      } else {
+        $(`#${$thisCard.cardKey}`).css('order', 3)
+      }
+    } 
+    $('#button-sort').text('reverse order')
+    sortState = 1 
+    console.log('sort')
+  } else if (sortState === 1) {
+    $('.cards-container').css('flex-direction', 'column-reverse');
+    $('#button-sort').text('un-sort')
+    sortState = 2;
+  } else {
+    $('#button-sort').text('sort')
+    $('.cards-container').css('flex-direction', 'column')
+    sortState = 0;
+
+    for (i=0; i < localStorage.length; i++){
+      var $thisCard = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      $(`#${$thisCard.cardKey}`).css('order', 0);
+    }
+  } 
+}
