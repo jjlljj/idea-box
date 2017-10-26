@@ -8,7 +8,7 @@ label {
   display: none;
 }
 body {
-	overflow: hidden;
+	overflow: auto;
 }
 p {
 	font-family: 'Open Sans', sans-serif;
@@ -84,6 +84,7 @@ button  {
 	max-height: 70px;
 	outline-style: none;
 	resize: none;
+	white-space:pre-wrap;
 }
 
 .button-save {
@@ -134,7 +135,7 @@ button  {
 /* haus du cards */
 .cards-container {
 	width: 100%;
-  height: 50vh;
+  height: 70vh;
 	overflow-y: scroll;
 	padding-bottom: 100px;
 }
@@ -179,6 +180,7 @@ button  {
 
 .card-content {
 	padding-top: 10px;
+	white-space:pre-wrap;
 }
 .card-footer-container {
 	border-bottom: 1px solid #D1D3D4;
