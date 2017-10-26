@@ -33,6 +33,7 @@ p {
 button  {
 	outline-style: none;
 }
+
 /* input section and form */
 
 .input-section {
@@ -45,14 +46,14 @@ button  {
 }
 
 .site-header {
-	margin: 10px auto 20px;
+	color: #6D6E71;
 	font-family: 'Roboto Slab';
 	font-size: 36px;
 	font-weight: 700;
-	color: #6D6E71;
 	letter-spacing: 1.25px;
-	width: 100%;
+	margin: 10px auto 20px;
 	text-align: center;
+	width: 100%;
 }
 
 .header-green {
@@ -65,83 +66,84 @@ button  {
 }
 
 .input-title {
-	display: block;
-	box-sizing: border-box;
 	border: 1px solid #D1D3D4;
+	box-sizing: border-box;
+	display: block;
 	font-size: 15px;
-	width: 100%;
 	height: 28px;
-	padding: 2px 5px;
 	margin: 15px 0px;
 	outline-style: none;
+	padding: 2px 5px;
+	width: 100%;
 }
 
 .input-body {
-	display: block;
 	border: 1px solid #D1D3D4;
 	box-sizing: border-box;
+	display: block;
 	font-size: 15px;
-	width: 100%;
 	height: 28px;
-	padding: 2px 5px;
 	margin: 15px 0px;
 	max-height: 70px;
 	outline-style: none;
+	padding: 2px 5px;
 	resize: none;
 	white-space:pre-wrap;
+	width: 100%;
 }
 
 .button-save {
 	background-color: #00A79D;
 	border-radius: 0;
-	color: #FFFFFF;
-	width: 350px;
   border: 0;
+	color: #FFFFFF;
   font-size: 14px;
   height: 30px;
   outline-style: none;
+  width: 350px;
 } 
 
 /* search and cards container */
 
 .card-section {
-	position: relative;
 	display: block;
-	width: 350px;
 	margin: 20px auto 10px;
+	position: relative;
+	width: 350px;
 }
 
 /* search bar */
 
 .search-form {
-	z-index: 1;
 	background-color: #FFFFFF;
 	margin: 0px auto;
+	z-index: 1;
 }
 
 ::-webkit-scrollbar {
-	width: 0px;
 	background: transparent;
+	width: 0px;
 }
 
 .input-search {
+	border: 1px solid #D1D3D4;
 	box-sizing: border-box;
 	font-family: 'Open Sans', sans-serif;
-	border: 1px solid #D1D3D4;
 	font-size: 15px;
-	width: 350px;
 	height: 28px;
-	padding: 3px 5px;
 	margin: 0px auto 10px;
 	outline-style: none;
+	padding: 3px 5px;
+	width: 350px;
 }
 
 /* haus du cards */
+
 .cards-container {
-	width: 100%;
   height: 70vh;
 	overflow-y: scroll;
 	padding-bottom: 100px;
+	width: 100%;
 }
 
 .idea-card {
@@ -150,81 +152,88 @@ button  {
 }
 
 .card-header-container {
-	width: 100%;
-	position: relative;
 	padding: 20px 0px 10px;
+	position: relative;
+	width: 100%;
 }
 
 .card-header {
-	font-family: 'Roboto Slab', sans-serif;
 	color: #6D6E71;
-	margin-right: 30px;
+	font-family: 'Roboto Slab', sans-serif;
 	font-size: 16px;
 	letter-spacing: .2px;
+	margin-right: 30px;
 }
 
 .card-delete-button {
-	position: absolute;
-	top: 17px;
-	right: 0px;
 	background: url(../images/delete.svg);
-	height: 20px;
-	width: 20px;
-	border-radius: 0;
   border: 0;
+	border-radius: 0;
+	height: 20px;
+	position: absolute;
+	right: 0px;
+	top: 17px;
+	width: 20px;
 }
+
 .card-delete-button:hover {
-	float: right;
 	background: url(../images/delete-hover.svg);
+  border: 0;
+	border-radius: 0;
+	float: right;
 	height: 20px;
 	width: 20px;
-	border-radius: 0;
-  border: 0;
 }
 
 .card-content {
 	padding-top: 10px;
 	white-space:pre-wrap;
 }
+
 .card-footer-container {
 	border-bottom: 1px solid #D1D3D4;
-	width: 100%;
-	position: relative;
 	padding: 20px 0px;
+	position: relative;
+	width: 100%;
 }
+
 .card-footer-container button {
 	display: inline-block;
 }
+
 .upvote-button {
-	background: url(../images/upvote.svg);
 	background-size: 20px;
+	background: url(../images/upvote.svg);
+  border: none;
 	height: 20px;
 	width: 20px;
-  border: none;
   margin-right: 10px;
 }
+
 .upvote-button:hover{
 	background: url(../images/upvote-hover.svg);
 }
+
 .downvote-button {
 	background: url(../images/downvote.svg);
 	background-size: 20px;
+  border: none;
 	height: 20px;
 	width: 20px;
-  border: none;
 }
+
 .downvote-button:hover{
 	background: url(../images/downvote-hover.svg);
-
 }
+
 .quality-header {
-	font-family: 'Roboto Slab', sans-serif;
+	bottom: 25px;
 	color: #6D6E71;
-	position: absolute;
+	font-family: 'Roboto Slab', sans-serif;
 	font-size: 12px;
 	left: 60px;
-	bottom: 25px;
 	padding: 1px 0px 0px 10px;
+	position: absolute;
 	vertical-align: top;
 }
 
@@ -233,7 +242,6 @@ button  {
 .hidden {
 	display: none;
 }
-
 
 @media screen and (max-width: 600px) {
 	body {
@@ -250,8 +258,8 @@ button  {
 
 	.input-body {
 		height: 70px;
-		padding-top: 0px;
 		min-height: 70px;
+		padding-top: 0px;
 	}
 
 	.site-header {
@@ -259,8 +267,7 @@ button  {
 	}
 
 	.idea-card {
-		width: 95%;
 		padding: 10px;
+		width: 95%;
 	}
-
 }
