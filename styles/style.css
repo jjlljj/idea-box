@@ -271,3 +271,25 @@ button  {
 		width: 95%;
 	}
 }
+@media screen and (max-width: 375px) {
+
+	.button-save {
+		width: 280px;
+	}
+
+	.card-section {
+		width: 280px;
+	}
+
+	.input-section {
+		min-width: 280px;
+	}
+
+	.input-form {
+		width: 280px;
+	}
+
+	.input-search {
+		width: 280px;
+	}
+}
